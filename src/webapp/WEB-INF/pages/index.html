@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>List Of Users</h2>
+    <hr/>
+    <table border="2">
+        <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>Email </th>
+        </thead>
+        <tbody>
+        <tr th:each = "tempUser : ${usersList}">
+            <td th:text="${tempUser.getId()}"/>
+            <td th:text="${tempUser.getFirstName()}"/>
+            <td th:text="${tempUser.getLastName()}"/>
+            <td th:text="${tempUser.getEmail()}"/>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <form action="/delete" method="get">
+        <input type="number" value="ID" name="id"/>
+        <input type="submit" value="Delete"/>
+    </form>
+    <br/><br/>
+    <form action="/update" method="get">
+        <input type="number" value="ID" name="id"/>
+        <input type="text" value="First Name" name="first_name"/>
+        <input type="text" value="Last Name" name="last_name"/>
+        <input type="text" value="Email" name="email"/>
+        <input type="submit" value="Update"/>
+    </form>
+    <br/><br/>
+    <form action="/add" method="get">
+        <input type="text" value="First Name" name="first_name"/>
+        <input type="text" value="Last Name" name="last_name"/>
+        <input type="text" value="Email" name="email"/>
+        <input type="submit" value="Add"/>
+    </form>
+</div>
+</body>
+</html>
