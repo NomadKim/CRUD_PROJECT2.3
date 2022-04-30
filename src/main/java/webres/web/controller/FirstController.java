@@ -26,7 +26,6 @@ public class FirstController {
     @GetMapping("/delete")
     public String secondPage(HttpServletRequest httpServletRequest, ModelMap modelMap){
         Long id = Long.valueOf(httpServletRequest.getParameter("id"));
-        System.out.println(id);
         try{
             userImplem.delete(id);
         }catch (IllegalArgumentException e){
